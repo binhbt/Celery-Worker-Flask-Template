@@ -12,9 +12,9 @@ def add(param1: int, param2: int) -> str:
     response = f"<a href='{url_for('check_task', task_id=task.id, external=True)}'>check status of {task.id} </a>"
     return response
 
-@app.route('/send/<string:msg>')
-def sendMsg(msg: str) -> str:
-    task = celery.send_task('tasks.sendSMS', args=[msg], kwargs={})
+@app.route('/send/<string:to>/<string:msg>')
+def sendMsg(to: str,msg: str) -> str:
+    task = celery.send_task('tasks.sendSMS', args=[to, msg], kwargs={})
     response = f"<a href='{url_for('check_task', task_id=task.id, external=True)}'>check status of {task.id} </a>"
     return response
 
