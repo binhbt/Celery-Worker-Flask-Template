@@ -16,16 +16,6 @@ def add(x: int, y: int) -> int:
     print(''+str(x)+'-'+str(y))
     return x + y
 
-@celery.task(name='tasks.sendSMS')
-def sendSMS(to: str, msg: str) ->str:
-    print('send message '+msg)
-    # logger.info('send message '+msg)
-    import requests
-    res = requests.get('http://google.com')
-    # print(res)
-    # logger.info(res)
-    return res.text
-
 @celery.task(name='tasks.printy')
-def add():
-    print('Printy fun is called')
+def printy() ->str:
+    return 'ok'

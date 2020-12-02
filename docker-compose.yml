@@ -6,12 +6,18 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-     - "5001:5001"
+     - "5005:5000"
     depends_on:
       - redis
   worker:
     build:
       context: celery-queue
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+  beat:
+    build:
+      context: celery-beat
       dockerfile: Dockerfile
     depends_on:
       - redis
