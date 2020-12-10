@@ -5,7 +5,7 @@ A basic [Docker Compose](https://docs.docker.com/compose/) template for orchestr
 ### Installation
 
 ```bash
-git clone https://github.com/mattkohl/docker-flask-celery-redis
+git clone https://github.com/binhbt/Celery-Worker-Flask-Template.git
 ```
 
 ### Build & Launch
